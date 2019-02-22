@@ -1,0 +1,136 @@
+extends layouts/default.pug
+
+block content
+  main
+    h1 Functions and Objects
+
+    p Javascript uses functions to perform actions on data or return information. Objects hold data in key, value pairs.
+
+    h6 Functions
+
+    p There are primarily three different types of functions:
+
+    ul
+      li Named functions
+      li Anonymous functions
+      li Immediately invoked function expressions
+
+    p Named Functions - are given a name and called using that name
+
+    +codeMulti('Javascript', 'function nameOfFunction(arguments) {', '  code block', '}')
+
+    p Anonymous Functions - are stored in a variable and used by calling the variable as a function
+
+    +codeMulti('Javascript', 'var math = function() {', '  var result = 2 + 3;', '  return result;', '}', 'math();')
+
+    p Immediately invoked function expressions - will run as soon as the browser finds it
+
+    +codeMulti('Javascript', '(function() {', '  var result = 2 + 3;', '}());')
+
+    h6 Arguments and Return Value
+
+    p Values can be passed into a function that is available for use within the function.
+
+    +codeMulti('Javascript', 'function findBiggestNumber(a, b) {', '  a > b ? "first number bigger" : "second number is bigger";', '}')
+
+    p The function above performs the logic, but does not explicitly return a value from the function. This can be resolved by using the return keyword to return a value from the function.
+
+    +codeMulti('Javascript', 'function findBiggestNumber(a, b) {', '  var result;', '  a > b ? result = "first number bigger" : result = "second number is bigger";', '  return result;', '}')
+
+    +codeMulti('Javascript', 'var bigNumber = findBiggestNumber(34, 12);', '// bigNumber = "first number is bigger"')
+
+    h6 Anonymous Functions
+
+    p These type of functions lack a name therefore must be tied to something like a variable.
+
+    +codeMulti('Javascript', 'var theBiggest = function(a, b) {', '  var result;', '  a > b ? result = "first number bigger" : result = "second number bigger"', '  return result;', '}', 'theBiggest(32, 63); // "second number is bigger"')
+
+    h6 Immediate Invoked Function Expressions
+
+    p This function is setup to run immediately upon being found in the code.
+
+    +codeMulti('Javascript', 'var theBiggest = (function(a, b) {', '  var result;', '  a > b ? result = "first number bigger" : result = "second number bigger"', '  return result;', '}(32, 63))', 'theBiggest; // "second number is bigger"')
+
+    p If variables are used, they have to be declared before the function. Immediately invoked function expressions can be useful to capture values immediately that can be used quickly.
+
+    h6 Variable Scope
+
+    p Variables declared within a function are only available within the function. Variables declared outside of functions are considered to be part of the global scope, so they are available inside and outside of functions.
+
+    +codeMulti('Javascript', 'function getName() {', '  var name = "Bob";', '}', 'name // reference error')
+
+    p The variable above 
+      span.code name
+      |is only available inside the function 
+      span.code getName()
+      |and therefor results in a reference error when attempted to be called outside the function.
+
+    h6 const & let
+
+    p These are two new types of variables available with ES6.
+
+    p
+      strong const 
+      |- is constant and can't be changed once defined.
+
+    p
+      strong let 
+      |- is a block scope variable and has a more restrictive scope than
+      span.code var
+      |.
+
+    +codeMulti('Javascript', 'const MYCONSTANT = "Howdy;"', 'MYCONSTANT = 34 // error - attempting to write to a readonly variable')
+
+    p Using 
+      span.code let
+      |as a variable within the local scope of a function will allow variable values to be preserved within each block scope versus using
+      span.code var
+      |which is a general variable within a function.
+
+    h6 Objects
+
+    p For more sophisticated data handling arrays are not efficient. This is when an object can be useful.
+
+    +codeMulti('Javascript', 'var person = new Person();', 'person.name = "bob cobb";', 'person.age = 34;', 'person.location = "New York";')
+
+    p The same object can be declared directly using the 
+      span.code {}
+      |notation.
+
+    +codeMulti('Javascript', 'var person = {', '  name: "bob cobb",', '  age: 34,', '  location: "New York"', '}')
+
+    p Objects data can be accessed in the following way.
+
+    +codeSingle('Javascript', 'person.name // "bob cobb"')
+
+    p Methods can be used within objects too.
+
+    +codeMulti('Javascript', 'var person = {', '  name: "bob cobb",', '  age: 34,', '  location: "New York",', '  updateAge: function() {', '    return ++person.age;', '  }', '}')
+
+    p Methods within objects are called using the same approach as accessing data.
+
+    +codeSingle('Javascript', 'person.updateAge();  // person.age = 35')
+
+    h6 Object Constructors
+
+    p Are templates for defining objects once and then can be reused over and over.
+
+    +codeMulti('Javascript', 'function Person(name, age, location) {', '  this.name = name;', '  this.age = age;', '  this.location = location;', '  this.updateAge = function() {', '    return ++this.age;', '  }', '} ')
+
+    p Populating one or more new 
+      span.code Person
+      |object(s) can be done the following way.
+
+    +codeMulti('Javascript', 'var person01 = new Person("Hal Hope", 31, "Boston");', 'var person02 = new Person("Bob Cobb", 52, "Miami");')
+
+    h6 Dot versus Bracket notation
+
+    p Accessing the data within an object can be done using either dot notation or bracket notation. It's most useful when passing some property names that should not be parsed. 
+
+    +codeMulti('Javascript', 'person.name', 'person["name"];')
+
+    h6 Closures
+
+    p When a function includes another function that depends on variable outside the second function scope are preserved to allow the function to run properly when called.
+
+    +codeMulti('Javascript', 'function doMath() {', '  var a = 3;', '  var b = 6;', '  function multiply() {', '    var result = a * b;', '    return result;', '  }', '  return multiply;', '}', 'var mathResult = doMath();', 'mathResult(); // 18')
