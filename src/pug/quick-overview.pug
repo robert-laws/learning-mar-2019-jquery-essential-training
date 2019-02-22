@@ -1,0 +1,88 @@
+extends layouts/default.pug
+
+block content
+  main
+    h1 Quick Overview of JQuery features
+
+    h6 Selectors and Filters
+
+    p 
+      |In JQuery - selectors and filters provide an easy way to find and extract information in the webpage so it can be acted upon. 
+      strong Selectors 
+      |are used to extract parts from the web page using CSS selector syntax. Things that can be selected include named classes, IDs, html element names, etc. 
+      strong Filters 
+      |are used to further refine selectors.
+
+    h6 Example 1 - Selector with a Filter
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $("p:first").css("color", "red");', '}')
+
+    h6 Example 2 - Selector with a more complex Filter
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $("p:not(.basic)").css("font-weight", "bold");', '});')
+
+    h6 Creating and Modifying Page Content
+
+    p JQuery has some easy ways to create new HTML content and add it to the webpage.
+
+    h6 Example 3 - Adding a new paragraph within a selector
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  var newParagraph = $("<p>");', '  newParagraph.append("<em>Greetings to all</em>");', '  $(".three").html(newParagraph);', '});')
+
+    h6 Example 4 - Prepend existing content
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $(".three p").prepend("Actor says: ");', '});')
+
+    h6 Example 5 - Inserting plain text
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $(".five p").text("<h1>An Example Title</h1>");', '});')
+
+    h6 JQuery and Events
+
+    p Creating and adding events to elements is straight forward with JQuery. When adding an event handler to an element, JQuery will create what is called that JQuery unified event object that is passed as an argument to the callback function.
+
+    h6 Example 6 - Handling events
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $(".six p").on("mouseover", onMouseOver);', '  $(".six p").on("mouseleave", onMouseLeave);', '});', 'function onMouseOver(evt) {', '  $(".six p").css("color", "red");', '}', 'function onMouseLeave(evt) {', '  $(".six p").css("color", "black");', '}')
+
+    h6 JQuery and Animations
+
+    p There is also a straight forward syntax for adding animations to elements on the page. This includes targeting the element and using the 
+      span.code .animate()
+      |function and passing arguments to perform an animation.
+
+    h6 Example 7 - Animating an element
+
+    +codeMulti('Javascript', '$("document").ready(function() {', '  $(".seven button").click(function() {', '    $(".seven #box").animate({left: 500, borderWidth: 5}, 400)', '  });', '});')
+
+    hr
+
+    section.example-area
+      h6 Code in Action - Examples
+      article.example-area__samples
+        h6 Example 1 - Selector with a Filter
+        section.one
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, amet!
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        hr
+        h6 Example 2 - Selector with a more complex Filter
+        section.two
+          p.basic Basic Paragraph
+          p.basic Basic Paragraph
+          p.important Important Paragraph
+        hr
+        h6 Example 3 and 4 - Creating and modifying content
+        section.three
+        hr
+        h6 Example 5 - Inserting plain text
+        section.five
+          p
+        hr
+        h6 Example 6 - Handling events
+        section.six
+          p Something happens when mousing over this text.
+        hr
+        h6 Example 7 - Animation
+        section.seven
+          button Click to Animate
+          #box
