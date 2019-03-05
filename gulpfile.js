@@ -17,6 +17,10 @@ var paths = {
     src: "src/js/**/*.js",
     dest: "dist/scripts"
   },
+  vendor: {
+    src: "src/vendor/**/*.js",
+    dest: "dist/scripts/vendor"
+  },
   pug: {
     src: "src/pug/*.pug",
     watch: "src/pug/**/*.pug",
@@ -59,10 +63,16 @@ gulp.task('styles', function() {
   return stream;
 });
 
+gulp.task('vendor', function () {
+  var stream = gulp.src(paths.vendor.src)
+    .pipe(gulp.dest(paths.vendor.dest));
+  return stream;
+});
+
 gulp.task('scripts', function() {
   var stream = gulp.src(paths.scripts.src)
     .pipe(sourcemaps.init())
-    // .pipe(concat('main.js'))
+    .pipe(concat('main.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.scripts.dest));
   return stream;
@@ -99,6 +109,7 @@ gulp.task('build', gulp.series('clean',
   gulp.parallel(
     'pug',
     'styles',
+    'vendor',
     'scripts',
     'images'
     )));
@@ -107,6 +118,7 @@ gulp.task('serve', gulp.series('clean',
   gulp.parallel(
     'pug',
     'styles',
+    'vendor',
     'scripts',
     'images'
   ),

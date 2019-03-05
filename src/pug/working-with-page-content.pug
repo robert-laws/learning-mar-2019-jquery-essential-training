@@ -2,4 +2,46 @@ extends layouts/default.pug
 
 block content
   main
-    h1 Working with Page Content
+    h1 Working with Page Content - 
+      a(href="page-content.html") Working Examples
+
+    h6 Basic Selectors
+
+    p There are various ways to select content on a page with JQuery. The syntax is typically 
+      span.code $('tagName')
+      |to select content based on the tag name or other types of selectors.
+
+    +codeMulti('Javascript', '$(".className")', '$("tag.className")', '$("tag#id.className")')
+
+    h6 Basic Filters
+
+    p Several basic filters exist within JQuery. These include:
+
+    table(cellspacing=0)
+      thead
+        tr
+          th Filter...
+          th Selects...
+      tbody
+        tr
+          td :first, :last
+          td first or last of a given selectors type
+        tr
+          td :even, :odd
+          td only even or odd items selected
+        tr
+          td :gt(), :lt(), :eq()
+          td items greater than, less than, or equal to an index
+        tr
+          td :animated
+          td items that are in the process of being animated
+        tr
+          td :focus
+          td the element that currently has focus
+        tr
+          td :not(expr)
+          td elements that don't match the given expression
+
+    p Filters can be applied by appending them to the items targeted in the selection.
+
+    +codeMulti('Javascript', '$("#example p:not(p:eq(2))").css("color", "red");')

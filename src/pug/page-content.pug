@@ -1,0 +1,33 @@
+extends layouts/default.pug
+
+block content
+  main
+    h1 Working with Page Content
+
+    h6 Basic Selectors
+
+    +codeMulti('Javascript', '$("section.one-page-content p").css("color", "red");')
+
+    h6 Basic Filters
+
+    +codeMulti('Javascript', '$("section.two-page-content p:gt(2)").css("color", "green");')
+
+    h6 ...
+
+    hr
+
+    section.example-area
+      h6 Code in Action - Examples
+      article.example-area__samples
+        h6 Example 1 - Basic Selectors 
+          p (targets - section.one-page-content p)
+        section.one-page-content
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, reiciendis.
+        h6 Example 2 - Basic Filters 
+          p (targets - section.two-page-content p:first, section.two-page-content p:gt(2))
+        section.two-page-content
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
