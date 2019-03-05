@@ -58,3 +58,13 @@ block content
       span.code ul ~ p
 
     +codeMulti('Javascript', '$("#example > p").css("color", "red");')
+
+    h6 Attribute Filters
+
+    p JQuery has the ability to select based on the presence of attributes. Using selector indicators like 
+      span.code ^
+      |for starts with or 
+      span.code *
+      |for contains the text it's possible to select on a very specific level.
+
+    +codeMulti('Javascript', '$("p[class]").css("color", "red");', '$("p[id=para1]").css("color", "green");', '$("p[id^=para]").css("color", "yellow");', '$("p[id^=para][lang*=en-").css("color", "yellow");')
