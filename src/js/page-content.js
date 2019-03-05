@@ -21,3 +21,8 @@ $("section.six-page-content p#name").next().css("color", "blue");
 $("section.six-page-content p").each(function(index, elem) {
   $(elem).css("fontStyle", "italic");
 });
+
+// full example
+$("section.seven-page-content p[data-type=apple]").css("color", "green");
+$("section.seven-page-content p[data-type=cherry]").css("color", "red");
+$("section.seven-page-content p[data-type=orange]").css("color", "orange");

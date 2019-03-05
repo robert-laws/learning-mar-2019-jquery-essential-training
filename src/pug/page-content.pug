@@ -2,7 +2,8 @@ extends layouts/default.pug
 
 block content
   main
-    h1 Working with Page Content
+    h1 Examples based on - 
+      a(href="working-with-page-content.html") Working with Page Content
 
     h6 Basic Selectors
 
@@ -29,6 +30,10 @@ block content
     +codeMulti('Javascript', '$("section.six-page-content p#name").next().css("color", "blue");')
     
     +codeMulti('Javascript', '$("section.six-page-content p").each(function(index, elem) {', '  $(elem).css("fontStyle", "italic");', '}')
+
+    h6 Full Example
+
+    +codeMulti('Javascript', '$("section.seven-page-content p[data-type=apple]").css("color", "green");', '$("section.seven-page-content p[data-type=cherry]").css("color", "red");', '$("section.seven-page-content p[data-type=orange]").css("color", "orange");')
 
     hr
 
@@ -80,3 +85,15 @@ block content
           p Welcome to the website
           p#name Bob Cobb
           p Please visit often
+        h6 Example 7 - Full Example
+          p color coding based on data-type value
+        section.seven-page-content
+          p(data-type="apple") apple
+          p(data-type="orange") orange
+          p(data-type="cherry") cherry
+          p(data-type="cherry") cherry
+          p(data-type="apple") apple
+          p(data-type="grape") grape
+          p(data-type="cherry") cherry
+          p(data-type="orange") orange
+          p(data-type="apple") apple
