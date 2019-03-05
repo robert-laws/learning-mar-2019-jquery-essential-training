@@ -5,40 +5,40 @@ $('document').ready(function() {
 });
 
 $('document').ready(function() {
-  $('.one p:first').css('color', 'red');
+  $('main.quick .one p:first').css('color', 'red');
 });
 
 $("document").ready(function() {
-  $(".two p:not(.basic)").css("font-weight", "bold");
+  $("main.quick .two p:not(.basic)").css("font-weight", "bold");
 });
 
 $("document").ready(function() {
   var newParagraph = $("<p>");
   newParagraph.append("<em>Greetings to all</em>");
-  $(".three").html(newParagraph);
+  $("main.quick .three").html(newParagraph);
 });
 
 $("document").ready(function() {
-  $(".three p").prepend("Actor says: ");
+  $("main.quick .three p").prepend("Actor says: ");
 });
 
 $("document").ready(function() {
-  $(".five p").text("<h1>An Example Title</h1>");
+  $("main.quick .five p").text("<h1>An Example Title</h1>");
 });
 
 $("document").ready(function() {
-  $(".six p").on("mouseover", onMouseOver);
-  $(".six p").on("mouseleave", onMouseLeave);
+  $("main.quick .six p").on("mouseover", onMouseOver);
+  $("main.quick .six p").on("mouseleave", onMouseLeave);
 });
 function onMouseOver(evt) {
-  $(".six p").css("color", "red");
+  $("main.quick .six p").css("color", "red");
 }
 function onMouseLeave(evt) {
-  $(".six p").css("color", "black");
+  $("main.quick .six p").css("color", "black");
 }
 
 $("document").ready(function() {
-  $(".seven button").click(function() {
-    $(".seven #box").animate({left: 500, borderWidth: 5}, 400)
+  $("main.quick .seven button").click(function() {
+    $("main.quick .seven #box").animate({left: 500, borderWidth: 5}, 400)
   });
 });

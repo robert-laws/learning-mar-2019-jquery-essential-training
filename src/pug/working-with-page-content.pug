@@ -45,3 +45,16 @@ block content
     p Filters can be applied by appending them to the items targeted in the selection.
 
     +codeMulti('Javascript', '$("#example p:not(p:eq(2))").css("color", "red");')
+
+    h6 Advanced Selectors
+
+    p These types of selectors take advantage of some of the advanced CSS selectors. Examples include the immediate child selector 
+      span.code div > p
+      |or the general descendant selector 
+      span.code div p
+      |or the next adjacent selector (select the element on the same level and immediately after the first element) 
+      span.code ul + div
+      |or the next sibling selector  (select all elements that come after the first selector) 
+      span.code ul ~ p
+
+    +codeMulti('Javascript', '$("#example > p").css("color", "red");')

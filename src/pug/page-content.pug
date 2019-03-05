@@ -12,7 +12,9 @@ block content
 
     +codeMulti('Javascript', '$("section.two-page-content p:gt(2)").css("color", "green");')
 
-    h6 ...
+    h6 Advanced Selectors
+
+    +codeMulti('Javascript', '$("section.three-page-content div.one + p").css("color", "red");')
 
     hr
 
@@ -20,14 +22,22 @@ block content
       h6 Code in Action - Examples
       article.example-area__samples
         h6 Example 1 - Basic Selectors 
-          p (targets - section.one-page-content p)
+          p targets - section.one-page-content p
         section.one-page-content
           p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, reiciendis.
         h6 Example 2 - Basic Filters 
-          p (targets - section.two-page-content p:first, section.two-page-content p:gt(2))
+          p targets - section.two-page-content p:first, section.two-page-content p:gt(2)
         section.two-page-content
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
+        h6 Example 3 - Advanced Selectors 
+          p targets - section.three-page-content div.two ~ p
+        section.three-page-content
+          div.one DIV one
+          p paragraph one
+          div.two DIV two
+          p paragraph two-1
+          p paragraph two-2
