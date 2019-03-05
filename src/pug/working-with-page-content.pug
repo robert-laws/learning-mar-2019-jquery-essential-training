@@ -68,3 +68,34 @@ block content
       |for contains the text it's possible to select on a very specific level.
 
     +codeMulti('Javascript', '$("p[class]").css("color", "red");', '$("p[id=para1]").css("color", "green");', '$("p[id^=para]").css("color", "yellow");', '$("p[id^=para][lang*=en-").css("color", "yellow");')
+
+    h6 Advanced Filters
+
+    p There are several advanced filters that allow more complex filtering of selectors.
+
+    table(cellspacing=0)
+      thead
+        tr
+          th Filter...
+          th Selects...
+      tbody
+        tr
+          td :contains()
+          td searches text for matches of contains argument
+        tr
+          td :parent
+          td selects element that has at least one other element or text in it will be selected
+        tr
+          td :has()
+          td look for elements that have the argument specified
+        tr
+          td :first-child
+          td selects elements that are the first child within their element
+        tr
+          td :last-of-type
+          td selects element that is last of type within its parent container
+        tr
+          td :nth-child()
+          td selects the element within the parent that is the nth index child (1-based index) - can use a number or values such as 2n for every 2nd element
+
+    +codeMulti('Javascript', '$("div p:first-child").css("color", "blue");', '$("div.items:contains("hammer").css("color", "red");')

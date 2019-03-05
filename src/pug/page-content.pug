@@ -16,6 +16,14 @@ block content
 
     +codeMulti('Javascript', '$("section.three-page-content div.one + p").css("color", "red");')
 
+    h6 Attribute Selectors
+
+    +codeMulti('Javascript', '$("section.four-page-content p[id^=sam]").css("color", "green");')
+
+    h6 Advanced Filters
+
+    +codeMulti('Javascript', '$("section.five-page-content p:contains("hammer")").css("color", "red");')
+
     hr
 
     section.example-area
@@ -41,10 +49,16 @@ block content
           div.two DIV two
           p paragraph two-1
           p paragraph two-2
-        h6 Example 4 - Advanced Filters 
+        h6 Example 4 - Attribute Filters
           p targets - section.four-page-content p[id^=sam]
         section.four-page-content
           p#sample paragraph one - id = sample
           p#names paragraph two - id = names
           p#same paragraph three - id = same
           p#places paragraph four - id = places
+        h6 Example 5 - Advanced Filters
+          p targets - section.five-page-content p:contains("hammer")
+        section.five-page-content
+          p Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          p Lorem ipsum dolor sit amet hammer consectetur.
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptatem vero!

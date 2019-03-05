@@ -9,5 +9,8 @@ $("section.two-page-content p:first").css("color", "blue");
 // advanced selectors
 $("section.three-page-content div.one + p").css("color", "red");
 
-// advanced filters
+// attribute filters
 $("section.four-page-content p[id^=sam]").css("color", "green");
+
+// advanced filters
+$("section.five-page-content p:contains('hammer')").css("color", "red");
