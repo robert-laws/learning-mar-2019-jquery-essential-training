@@ -99,3 +99,31 @@ block content
           td selects the element within the parent that is the nth index child (1-based index) - can use a number or values such as 2n for every 2nd element
 
     +codeMulti('Javascript', '$("div p:first-child").css("color", "blue");', '$("div.items:contains("hammer").css("color", "red");')
+
+    h6 Traversing Documents
+
+    p There are several built-in ways to traverse elements. Some of these include
+      span.code .prev()
+      |, 
+      span.code .next()
+      |, 
+      span.code .parent()
+      |, and 
+      span.code .parentUntil()
+      |, and 
+      span.code .children()
+      |.
+
+    +codeMulti('Javascript', '$("div.owner").children().css("color", "red");', '$("#contact").next().css("color", "red");')
+
+    p A versatile tool is the 
+      span.code .find()
+      |function. It will find the element specified.
+
+    +codeMulti('Javascript', '$("div").find("p").css("color", "red");')
+
+    p Another important function is the each function. This will allow each element selected to be acted upon in unique ways. The 
+      span.code .each()
+      |callback function accepts two arguments - index of the current element and the element itself.
+
+    +codeMulti('Javascript', '$("#example p").each(function(index, elem) {', '  $(elem).css("color", "green");', '}')

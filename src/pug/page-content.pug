@@ -24,17 +24,25 @@ block content
 
     +codeMulti('Javascript', '$("section.five-page-content p:contains("hammer")").css("color", "red");')
 
+    h6 Traversing Documents
+
+    +codeMulti('Javascript', '$("section.six-page-content p#name").next().css("color", "blue");')
+    
+    +codeMulti('Javascript', '$("section.six-page-content p").each(function(index, elem) {', '  $(elem).css("fontStyle", "italic");', '}')
+
     hr
 
     section.example-area
       h6 Code in Action - Examples
       article.example-area__samples
         h6 Example 1 - Basic Selectors 
-          p targets - section.one-page-content p
+          p targets - 
+            em section.one-page-content p
         section.one-page-content
           p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, reiciendis.
         h6 Example 2 - Basic Filters 
-          p targets - section.two-page-content p:first, section.two-page-content p:gt(2)
+          p targets - 
+            em section.two-page-content p:first, section.two-page-content p:gt(2)
         section.two-page-content
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
@@ -42,7 +50,8 @@ block content
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nostrum dolorum harum!
         h6 Example 3 - Advanced Selectors 
-          p targets - section.three-page-content div.two ~ p
+          p targets - 
+            em section.three-page-content div.two ~ p
         section.three-page-content
           div.one DIV one
           p paragraph one
@@ -50,15 +59,24 @@ block content
           p paragraph two-1
           p paragraph two-2
         h6 Example 4 - Attribute Filters
-          p targets - section.four-page-content p[id^=sam]
+          p targets - 
+            em section.four-page-content p[id^=sam]
         section.four-page-content
           p#sample paragraph one - id = sample
           p#names paragraph two - id = names
           p#same paragraph three - id = same
           p#places paragraph four - id = places
         h6 Example 5 - Advanced Filters
-          p targets - section.five-page-content p:contains("hammer")
+          p targets - 
+            em section.five-page-content p:contains("hammer")
         section.five-page-content
           p Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           p Lorem ipsum dolor sit amet hammer consectetur.
           p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptatem vero!
+        h6 Example 6 - Traversing Documents
+          p targets - 
+            em section.six-page-content p#name
+        section.six-page-content
+          p Welcome to the website
+          p#name Bob Cobb
+          p Please visit often

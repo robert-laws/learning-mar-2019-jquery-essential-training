@@ -14,3 +14,10 @@ $("section.four-page-content p[id^=sam]").css("color", "green");
 
 // advanced filters
 $("section.five-page-content p:contains('hammer')").css("color", "red");
+
+// traversing documents
+$("section.six-page-content p#name").next().css("color", "blue");
+
+$("section.six-page-content p").each(function(index, elem) {
+  $(elem).css("fontStyle", "italic");
+});
