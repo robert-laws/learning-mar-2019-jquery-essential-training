@@ -2,8 +2,7 @@ extends layouts/default.pug
 
 block content
   main
-    h1 Manipulating Page Content - 
-      a(href="manipulating.html") Working Examples
+    h1 Manipulating Page Content
 
       h6 Creating Content
 
@@ -181,4 +180,19 @@ block content
           section#text-data
             p(data-cost=5) some data
             p ...
-            
+          h6 Example 8 - Hide/Show content
+          section#hide-show
+            form
+              input(id="blue-checkbox" type="checkbox" name="blue" value="blue" checked) 
+              | Blue
+              input(id="red-checkbox" type="checkbox" name="red" value="red" checked) 
+              | Red
+            ul
+              li.red Red
+              li.red Red
+              li.blue Blue
+              li.red Red
+              li.red Red
+              li.blue Blue
+              li.red Red
+              li.blue Blue

@@ -89,3 +89,20 @@ $("#text-data p:first").next().text("data value: " + dataResult);
 $("#text-data").attr('data-use', 100);
 $("#text-data").data('use', 66);
 // alert(JSON.stringify($("#text-data").data(), null, "  "));
+
+// challenge
+document.querySelector("#blue-checkbox").addEventListener('change', function(event) {
+  updateColorList("blue", event.target.checked);
+});
+
+document.querySelector("#red-checkbox").addEventListener('change', function(event) {
+  updateColorList("red", event.target.checked);
+});
+
+function updateColorList(color, isChecked) {
+  if(isChecked == true) {
+    $("#hide-show li." + color).removeClass("hide");
+  } else {
+    $("#hide-show li." + color).addClass("hide");
+  }
+}
