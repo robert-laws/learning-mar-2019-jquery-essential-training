@@ -4,3 +4,181 @@ block content
   main
     h1 Manipulating Page Content - 
       a(href="manipulating.html") Working Examples
+
+      h6 Creating Content
+
+      p Two functions are available for creating content. They are 
+        span.code .html()
+        |and 
+        span.code .text()
+        |. The first function will insert fully functional html code into the selected element. The second function will insert plain text, even if it includes html tags. The inserted text will replace whatever content exists in the selection.
+
+      +codeMulti('Javascript', '$("#contact p:first").html("<span>Get in touch here.</span>");')
+
+      +codeMulti('Javascript', '$("#contact p:last").text("<p>Learn more about us</p>");')
+
+      h6 Inserting Content within a Selection
+
+      p There are two main ways to add content to a selection without replacing the existing content. They are 
+        span.code .append()
+        |and 
+        span.code .prepend()
+        |. These two functions will insert content within the selection.
+
+      +codeMulti('Javascript', '$("#headlines ul").append("<li>New Appended Item</li>");')
+
+      +codeMulti('Javascript', '$("#headlines ul").prepend("<li>New Prepended Item</li>");')
+
+      +codeMulti('Javascript', '$("<li>Last Appended Item</li>").appendTo("#headlines ul");')
+
+      h6 Inserting Content outside of a Selection
+
+      p The way to insert content outside of a selection is by using the 
+        span.code .before()
+        |and 
+        span.code .after()
+        |functions.
+
+      +codeMulti('Javascript', '$("#list ul").before("<h6>The List Title</h6>");')
+
+      +codeMulti('Javascript', '$("#list ul").after("<p><em>fine print...</em></p>");')
+
+      +codeMulti('Javascript', '$("<small>extra fine print</small>").insertAfter("#list ul");')
+
+      h6 Altering Page Content
+
+      p Making changes to existing content is achieved several different ways. The function 
+        span.code .wrap()
+        |will wrap content around the selected elements. The function 
+        span.code .wrapAll()
+        |wraps the selected content. To clear content, use 
+        span.code .empty()
+        |. The function 
+        span.code .remove()
+        |will remove the element from the page and its embedded content. To retain embedded content, use 
+        span.code .detach()
+        |. The functions 
+        span.code .replaceAll()
+        |and 
+        span.code .replaceWith()
+        |are used to replace the content of the selected element(s). Using a callback function with .replaceWith() is possible.
+
+      +codeMulti('Javascript', '$("section#details").wrap("<div id="details-wrapper" />");')
+
+      +codeMulti('Javascript', '$("section#details li").wrap("<em />");')
+
+      +codeMulti('Javascript', '$("section#details li:last").empty();')
+
+      +codeMulti('Javascript', '$("section#details li:first").remove();')
+
+      +codeMulti('Javascript', '$("section#details li").replaceWith(function() {', '  if($(this).text().indexOf("") != -1) {', '    return "<p>the text is matched</p>";', '  } else {', '    return this.outerHTML;', '  }', '}')
+
+      h6 Manipulating Attributes
+
+      p Modifying attributes is an important feature of JQuery. Using the functions 
+        span.code .attr()
+        |is used to add or modify attributes. Similarly, the function 
+        span.code .removeAttr()
+        |is used to remove an existing attribute. The .attr() function also accepts an object as an argument.
+
+      +codeMulti('Javascript', '$("#names p").attr("title", "names title");')
+
+      +codeMulti('Javascript', '$("#names p:first").attr("id", "first-listed-name");')
+      
+      +codeMulti('Javascript', '$("#names p").removeAttr("title");')
+
+      h6 Working with CSS
+
+      p The easiest way to work with CSS in JQuery is with the 
+        span.code .css()
+        |function. To get a property value, use the function with a single argument that is the property name. Using two arguments will apply a css style to a selected item. An object can also be passed as an argument to apply multiple css styles.
+
+      +codeMulti('Javascript', '$("#css-content p:first").css("color");')
+
+      +codeMulti('Javascript', '$("#css-content p:last").css("fontWeight", "bold");')
+
+      +codeMulti('Javascript', '$("#css-content p#sample-text").css({fontStyle: "italic", color: "red", fontSize: "2rem"});')
+
+      p Another good way to manipulate css is through the functions to 
+        span.code .addClass()
+        |, 
+        span.code .removeClass()
+        |, or 
+        span.code .toggleClass()
+        | to work with existing class definitions.
+
+      +codeMulti('Javascript', '$("#css-content p#third-text").addClass("color-crimson");')
+
+      +codeMulti('Javascript', '$("#click-text").toggleClass("changing-text");')
+
+      h6 Working with Data
+
+      p Using the function 
+        span.code .data()
+        |it's possible to add data attributes to selections and work with them. Using the HTML5 data- object, JQuery can add and access data information.
+
+      +codeMulti('Javascript', '$("#text-data p:last").data("use", "examples");')
+
+      section.example-area
+        h6 Code in Action - Examples
+        article.example-area__samples
+          h6 Example 1 - Creating Content
+            p targets - 
+              em #contact p:first, #contact p:last
+          section.one-manipulating#contact
+            p ...
+            p contact email
+            p ...
+          h6 Example 2 - Inserting Content - part 1
+            p targets - 
+              em #headlines ul
+          section.one-manipulating#headlines
+            ul
+              li One
+              li Two
+              li Three
+          h6 Example 3 - Inserting Content - part 2
+            p targets - 
+              em #list ul
+          section.one-manipulating#list
+            ul
+              li One
+              li Two
+              li Three
+          h6 Example 4 - Altering Page Content
+            p targets - 
+              em section#details
+          section#details
+            ul
+              li One
+              li Two
+              li Three
+              li Four
+              li Five
+          h6 Example 5 - Manipulating Attributes
+            p targets - 
+              em #names p
+          section#names
+            p#first-name Bob
+            p Hal
+            p Kal
+            p Dave
+          h6 Example 6 - Working with CSS
+            p targets - 
+              em #css-content p
+          section#css-content
+            p(style="color: green;") Some basic text
+            p#click-text Changing Text...
+            p#sample-text Sample Text
+            p#third-text.text-large Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            p ...
+            button#btn-on Change Text Above
+            button#btn-add Add New Class
+            button#btn-remove Remove New Class
+          h6 Example 7 - Working with Data
+            p targets - 
+              em #text-data p
+          section#text-data
+            p(data-cost=5) some data
+            p ...
+            
