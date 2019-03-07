@@ -4,11 +4,24 @@ block content
   main
     h1 JQuery Events
 
-      h6 ...
+      h6 Binding and Unbinding Events
+
+      p A basic way to bind events to elements on the page and execute a function is by using the 
+        span.code .on()
+        |function. Likewise, to remove the event binding use the 
+        span.code .off()
+        |function.
+
+      +codeMulti('Javascript', '$("#events-one-click-on").on("click", function() {', '  $(".events-one p:first").toggleClass("red");', '});')
+
+      +codeMulti('Javascript', '$("#events-one-click-off").off("click", function() {', '  $(".events-one p:first").toggleClass("red");', '});')
 
       section.example-area
         h6 Code in Action - Examples
         article.example-area__samples
-          h6 Example 1 - 
+          h6 Example 1
           section.events-one
-            p ...
+            p Bob Cobb
+            button#events-one-click-on click
+            p Kal Kool
+            button#events-two-click-on click
