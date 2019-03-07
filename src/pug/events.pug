@@ -16,12 +16,40 @@ block content
 
       +codeMulti('Javascript', '$("#events-one-click-off").off("click", function() {', '  $(".events-one p:first").toggleClass("red");', '});')
 
+      h6 Event Helper Features
+
+      p JQuery comes with several shorthand functions that add event handling for commons events like click and hover. Many of these functions can be found on the 
+        a(href="https://api.jquery.com/category/events/") JQuery Events Documentation 
+        | webpage.
+
+      +codeMulti('Javascript', '$(".events-two p:first").hover(function(evt) {', '  $(this).toggleClass("blue");', '}')
+
+      +codeMulti('Javascript', '$(".events-two p:last").mouseenter(function() {', '  $(this).css("color", "red");', '}')
+
+      h6 JQuery Universal Event Object
+
+      p A built-in 
+        a(href="https://api.jquery.com/category/events/event-object/") JQuery Event Object 
+        |comes with several useful features. Among them is the ability to access event information no matter which browser is being used.
+
+      +codeMulti('Javascript', '$(".events-three input:first").keydown(function(event) {', '  $(".events-three p:first").text(event.which);', '});')
+
       section.example-area
         h6 Code in Action - Examples
         article.example-area__samples
           h6 Example 1
           section.events-one
             p Bob Cobb
-            button#events-one-click-on click
-            p Kal Kool
-            button#events-two-click-on click
+            button#events-one-click-on click - toggle color
+            button#events-two-click-on click - increase size
+          h6 Example 2
+          section.events-two
+            p Hal Hope (hover)
+            p Kal Kool (click)
+          h6 Example 3
+          section.events-three
+            form
+              input(type="text") 
+              | Type some text
+              p ...
+
