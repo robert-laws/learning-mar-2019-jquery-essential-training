@@ -1,0 +1,29 @@
+{
+  "names": [
+    {
+      "first_name": "Bob",
+      "last_name": "Cobb",
+      "title": "Food Inspector"
+    },
+    {
+      "first_name": "Hal",
+      "last_name": "Hope",
+      "title": "Cab Driver"
+    },
+    {
+      "first_name": "Kal",
+      "last_name": "Kool",
+      "title": "Cashier"
+    },
+    {
+      "first_name": "Mel",
+      "last_name": "Mope",
+      "title": "Factory Worker"
+    },
+    {
+      "first_name": "Don",
+      "last_name": "Dome",
+      "title": "Banker"
+    }
+  ]
+}

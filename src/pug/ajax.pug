@@ -1,0 +1,78 @@
+extends layouts/default.pug
+
+block content
+  main
+    h1 JQuery Events
+
+      h6 JQuery and Ajax
+
+      p JQuery comes with several built-in ways to issue an ajax request. The most basic way is to use the 
+        span.code .ajax()
+        |function.
+
+      +codeMulti('Javascript', '$.ajax({', '  url: "assets/data/info.txt",', '  type: "GET",', '  dataType: "text",', '  success: successFunction,', '  error: errorFunction,', '  complete: function(xhr, status) {', '    console.log("completed ajax request");', '  }', '});')
+
+      section.example-area
+        h6 Code in Action - Example 1
+        article.example-area__samples
+          section.ajax-one
+            div
+              p ...
+
+      h6 Ajax Convenience Functions
+
+      p Several shorthand functions exist that allow for ajax requests with much less code than the example above. Some functions that accomplish this are 
+        span.code .get()
+        |and 
+        span.code .load()
+        |functions.
+
+      +codeMulti('Javascript', '$(".ajax-two div").load("assets/data/info.html #p2");')
+
+      section.example-area
+        h6 Code in Action - Example 2
+        article.example-area__samples
+          section.ajax-two
+            div
+              p ...
+
+      h6 Working with Different Data Types - XML
+
+      p JQuery is purpose built to work with both 
+        span.code XML
+        |and 
+        span.code JSON
+        |type data.
+
+      +codeMulti('Javascript', '$.get("assets/data/person.xml", function(res) {', '  var name = res.getElementByTagName("name")[0];', '  var title = res.getElementByTagName("title")[0];', '  $(".ajax-three div").append(name + " - " + title);', '});')
+
+      section.example-area
+        h6 Code in Action - Example 3
+        article.example-area__samples
+          section.ajax-three
+            div
+
+      h6 Working with Different Data Types - JSON
+
+      p JSON data is common enough that JQuery has built-in ways to handle it. This is done by using the 
+        span.code .getJSON()
+        |function. A typical approach is to load JSON data and iterate over it's content.
+
+      +codeMulti('Javascript', '$("$.getJSON("assets/data/people.json")', ' .done(function(namesData) {', '  namesData.names.forEach(function(elem) {', '    $(".ajax-four div").append(elem.first_name + " ");', '    $(".ajax-four div").append(elem.last_name + " - ");', '    $(".ajax-four div").append(elem.title);', '    $(".ajax-four div").append("<hr>");', '  });', '});')
+
+      section.example-area
+        h6 Code in Action - Example 4
+        article.example-area__samples
+          section.ajax-four
+            div
+
+      h6 Global Ajax Handlers
+
+      p JQuery handles ajax request by running several handler functions at different points during the ajax request lifecycle. This is done using the following pre-built functions.
+
+      ul
+        li .ajaxStart()
+        li .ajaxSend()
+        li .ajaxSuccess() / .ajaxError()
+        li .ajaxComplete()
+        li .ajaxStop()

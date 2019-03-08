@@ -21,6 +21,10 @@ var paths = {
     src: "src/vendor/**/*.js",
     dest: "dist/scripts/vendor"
   },
+  assets: {
+    src: "src/assets/**/*",
+    dest: "dist/assets"
+  },
   pug: {
     src: "src/pug/*.pug",
     watch: "src/pug/**/*.pug",
@@ -69,6 +73,12 @@ gulp.task('vendor', function () {
   return stream;
 });
 
+gulp.task('assets', function () {
+  var stream = gulp.src(paths.assets.src)
+    .pipe(gulp.dest(paths.assets.dest));
+  return stream;
+});
+
 gulp.task('scripts', function() {
   var stream = gulp.src(paths.scripts.src)
     .pipe(sourcemaps.init())
@@ -110,6 +120,7 @@ gulp.task('build', gulp.series('clean',
     'pug',
     'styles',
     'vendor',
+    'assets',
     'scripts',
     'images'
     )));
@@ -119,6 +130,7 @@ gulp.task('serve', gulp.series('clean',
     'pug',
     'styles',
     'vendor',
+    'assets',
     'scripts',
     'images'
   ),

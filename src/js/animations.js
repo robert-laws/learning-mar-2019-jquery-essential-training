@@ -1,9 +1,9 @@
 // animations
 
 // style animation div
-$(".example-area__samples div").css({border: "1px solid #555", backgroundColor: "lightblue", padding: "1rem"});
+$(".animations-example-area div").css({border: "1px solid #555", backgroundColor: "lightblue", padding: "1rem"});
 
-$(".example-area__samples div:last").css({border: "1px solid #555", backgroundColor: "lightgreen", padding: "1rem", margin: "1rem", width: "150px"});
+$(".animations-example-area div:last").css({border: "1px solid #555", backgroundColor: "lightgreen", padding: "1rem", margin: "1rem", width: "150px"});
 
 // hide/show/toggle
 $("#animations-hide").click(function() {
@@ -64,3 +64,64 @@ $("#animations-animate-two").click(function() {
 $("#animations-animate-three").click(function() {
   $(".animations-four div").animate({height: "100px", width: "600px"}, 1000, "swing");
 });
+
+// ajax
+
+
+function getData() {
+  $.ajax({
+    url: "assets/data/info.txt",
+    type: "GET",
+    dataType: "text",
+    success: successFunction,
+    error: errorFunction,
+    complete: function(xhr, status) {
+      console.log("completed ajax request");
+    }
+  });
+}
+
+$(document).ready(function() {
+  getData();
+});
+
+function successFunction(res) {
+  $(".ajax-one div p").append(res);
+}
+
+function errorFunction(xhr, status, strError) {
+  console.log("error...");
+}
+
+// convenience functions
+$(".ajax-two div").load("assets/data/info.html #p2");
+
+// working with xml and ajax data
+
+// xml
+function getXMLData() {
+  $.get("assets/data/person.xml", function(res) {
+    var name = res.getElementsByTagName("name")[0];
+    var title = res.getElementsByTagName("title")[0];
+    var nameVal = name.firstChild.nodeValue;
+    var titleVal = title.firstChild.nodeValue;
+    $(".ajax-three div").append(nameVal + " - " + titleVal);
+  });
+}
+
+$(document).ready(function() {
+  getXMLData();
+});
+
+// json
+$(document).ready(function() {
+  $.getJSON("assets/data/people.json")
+    .done(function(namesData) {
+      namesData.names.forEach(function(elem) {
+        $(".ajax-four div").append(elem.first_name + " ");
+        $(".ajax-four div").append(elem.last_name + " - ");
+        $(".ajax-four div").append(elem.title);
+        $(".ajax-four div").append("<hr>");
+      });
+    });
+})
