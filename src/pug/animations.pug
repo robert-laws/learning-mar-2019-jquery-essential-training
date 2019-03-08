@@ -1,0 +1,111 @@
+extends layouts/default.pug
+
+block content
+  main
+    h1 JQuery Events
+
+      h6 Hiding and Showing Elements
+
+      p JQuery's animation support can be found it its 
+        a(href="https://api.jquery.com/category/effects/") Effects 
+        | section. Three basic animations are the 
+        span.code .hide()
+        |, 
+        span.code .show()
+        |, and 
+        span.code .toggle() 
+        |functions hide/show. They can be called with or without arguments. The arguments are the duration of the animation and easing type of "swing" or "linear". They can also accept a completion callback function.
+
+      +codeMulti('Javascript', '$(".animations-one div").hide();')
+
+      +codeMulti('Javascript', '$(".animations-one div").show(1000, "linear");')
+
+      +codeMulti('Javascript', '$(".animations-one div").toggle("slow", completeFunction);', '', 'function completeFunction() {', '  $(this).text("New Text...");', '}')
+
+      section.example-area
+        h6 Code in Action - Example 1
+        article.example-area__samples
+          section.animations-one
+            div
+              p Bob Cobb
+            button#animations-hide click to hide
+            button#animations-show click to show
+            button#animations-toggle click to toggle
+
+      h6 Fading Elements
+
+      p Another animation type is to 
+        span.code .fadeIn()
+        |,  
+        span.code .fadeOut()
+        |, and 
+        span.code .fadeTo()
+        |functions. The fade in and out functions accept an argument of duration. The fade to function accepts two arguments of duration and opacity. The functions allow for a completion function as well.
+
+      +codeMulti('Javascript', '$(".animations-two div").fadeOut();')
+
+      +codeMulti('Javascript', '$(".animations-two div").fadeIn(750);')
+
+      +codeMulti('Javascript', '$(".animations-two div").fadeTo(1000, 0.5);')
+
+      +codeMulti('Javascript', '$(".animations-two div").fadeTo(1000, 0.5).fadeTo(500, 0.75).fadeTo(750, 0).fadeTo(1250, 1.0);')
+
+      section.example-area
+        h6 Code in Action - Example 2
+        article.example-area__samples
+          section.animations-two
+            div
+              p Hal Hope
+            button#animations-fade-out click to fade out
+            button#animations-fade-in click to fade in
+            button#animations-fade-to click to fade to
+            button#animations-fade-to-multi click to fade to steps
+
+      h6 Sliding Elements
+
+      p Sliding elements can be handled by the 
+        span.code .slideUp()
+        |and 
+        span.code .slideDown()
+        |, both of which can accept an argument of duration. There is also a 
+        span.code .slideToggle()
+        |function available to combine both sliding actions.
+
+      +codeMulti('Javascript', '$(".animations-three div").slideUp();')
+      
+      +codeMulti('Javascript', '$(".animations-three div").slideDown("fast");')
+
+      +codeMulti('Javascript', '$(".animations-three div").slideToggle("slow");')
+
+      section.example-area
+        h6 Code in Action - Example 3
+        article.example-area__samples
+          section.animations-three
+            div
+              p Kal Kool
+            button#animations-slide-up slide up
+            button#animations-slide-down slide down
+            button#animations-slide-toggle slide toggle
+
+      h6 Custom Animations
+
+      p If the pre-built JQuery animations are not sufficient, it's possible to create custom animations using the 
+        span.code .animate()
+        |function. This function accepts arguments of an object of css properties and values, duration, easing, and an optional callback function.
+
+      +codeMulti('Javascript', '$(".animations-four div").animate({width: "300px"});')
+
+      +codeMulti('Javascript', '$(".animations-four div").animate({height: "70px"});')
+      
+      +codeMulti('Javascript', '$(".animations-four div").animate({height: "100px", width: "600px"}, 1000, "swing");')
+
+      section.example-area
+        h6 Code in Action - Example 4
+        article.example-area__samples
+          section.animations-four
+            div
+              p Mel Mope
+            button#animations-animate-one animate one
+            button#animations-animate-two animate two
+            button#animations-animate-three animate three
+
