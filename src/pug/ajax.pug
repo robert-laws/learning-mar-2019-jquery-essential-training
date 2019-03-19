@@ -58,7 +58,7 @@ block content
         span.code .getJSON()
         |function. A typical approach is to load JSON data and iterate over it's content.
 
-      +codeMulti('Javascript', '$("$.getJSON("assets/data/people.json")', ' .done(function(namesData) {', '  namesData.names.forEach(function(elem) {', '    $(".ajax-four div").append(elem.first_name + " ");', '    $(".ajax-four div").append(elem.last_name + " - ");', '    $(".ajax-four div").append(elem.title);', '    $(".ajax-four div").append("<hr>");', '  });', '});')
+      +codeMulti('Javascript', '$(document).ready(function() {', '$.getJSON("assets/data/people.json")', ' .done(function(namesData) {', '  namesData.names.forEach(function(elem) {', '    $(".ajax-four div").append(elem.first_name + " ");', '    $(".ajax-four div").append(elem.last_name + " - ");', '    $(".ajax-four div").append(elem.title);', '    $(".ajax-four div").append("<hr>");', '  });', '});')
 
       section.example-area
         h6 Code in Action - Example 4

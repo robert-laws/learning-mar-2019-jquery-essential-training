@@ -94,9 +94,70 @@ $(function() {
   $("#my-button").on("click", function() {
     $("p").css("color", "red");
   });
-})
+});
+
+$(function() {
+  $("p").mouseenter(function() {
+    $(this).css("color", "red");
+  });
+});
 ```
 
 ## Animations
 
+The main types of animations are `.hide()`, `.show()`, `.toggle()`, `.fadeIn()`, `.fadeOut()`, `.fadeTo()`, `.slideUp()`, `.slideDown()`, `.slideToggle()`, and `.animate()` for custom animations.
+
+```javascript
+$(function() {
+  $(".animations-one div").hide();
+});
+```
+
+Animation functions can accept options - including an animation time in milliseconds and an easing function definition.
+
+```javascript
+$(function() {
+  $("#my-text-field").show(1000, "linear");
+});
+```
+
+Finally, animations can accept a completion function as an argument.
+
+```javascript
+$(function() {
+  $("#main-title").fadeIn("slow", function() {
+    $(this).text("My appearing title");
+  });
+});
+```
+
 ## Ajax
+
+The basics of an ajax call via JQuery include specifying a url, a request type, a data type, the success, failure, and completion functions.
+
+```javascript
+$.ajax({
+  url: "assets/data/info.txt",
+  type: "GET",
+  dataType: "text",
+  success: successFunction,
+  error: errorFunction,
+  complete: function(xhr, status) {
+    console.log("completed ajax request");
+  }
+});
+```
+
+The `.getJSON()` function is also available to facilitate JSON data type requests with minimum hassle.
+
+```javascript
+$.getJSON("assets/data/people.json")
+  .done(function(namesData) {
+    namesData.names.forEach(function(elem) {
+      $(".ajax-four div").append(elem.first_name + " ");
+      $(".ajax-four div").append(elem.last_name + " - ");
+      $(".ajax-four div").append(elem.title);
+      $(".ajax-four div").append("<hr>");
+    });
+  });
+```
